@@ -3,6 +3,10 @@ export default (state, action) => {
         case 'REMOVE_USER':
             return {
                 users: state.users.filter(user => user.id !== action.payload)
+            };
+        case 'ADD_USER':
+            return {
+                users: [...state.users, action.payload]
             }
         default:
             return state;
