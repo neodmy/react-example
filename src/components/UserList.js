@@ -9,7 +9,7 @@ import {
 import { GlobalContext } from '../context/GlobalState';
 
 export const UserList = () => {
-    const { users } = useContext(GlobalContext);
+    const { users, removeUser } = useContext(GlobalContext);
     return(
         <ListGroup className='mt-4'>
             {users.map(user => (
@@ -17,7 +17,7 @@ export const UserList = () => {
                     <strong>{user.name}</strong>
                     <div className='ml-auto'>
                         <Link className='btn btn-warning mr-1' to={`/edit/${user.id}`}>Edit</Link>
-                        <Button color='danger'>Delete</Button>
+                        <Button onClick={() => removeUser(user.id)} color='danger'>Delete</Button>
                     </div>
                 </ListGroupItem>
             ))}
