@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
 import AppReducer from './AppReducer';
+import { ActionsTypes } from './Actions';
 
 const initialState = {
     users: []
@@ -13,21 +14,21 @@ export const GlobalProvider = ({ children }) => {
     
     const removeUser = (id) => {
         dispatch({
-            type: 'REMOVE_USER',
+            type: ActionsTypes.REMOVE_USER,
             payload: id,
         })
     };
 
     const addUser = (user) => {
         dispatch({
-            type: 'ADD_USER',
+            type: ActionsTypes.ADD_USER,
             payload: user,
         })
     };
 
     const editUser = (user) => {
         dispatch({
-            type: 'EDIT_USER',
+            type: ActionsTypes.EDIT_USER,
             payload: user,
         })
     }
