@@ -9,24 +9,25 @@ import {
 } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
 
-import { GlobalContext } from '../context/GlobalState';
+// import { GlobalContext } from '../context/GlobalState';
+import { TeamContext } from '../context/team-context';
 
 export const AddUser = () => {
+  const { addPlayer } = useContext(TeamContext);
   const [name, setName] = useState('');
-  const { addUser } = useContext(GlobalContext);
+  // const { addUser } = useContext(GlobalContext);
   const history = useHistory();
 
   const onSubmit = () => {
-    const newUser = {
+    const newPlayer = {
       id: uuid(),
       name,
     };
-    addUser(newUser);
+    addPlayer(newPlayer);
     history.push('/');
   };
 
   const onChange = (e) => setName(e.target.value);
-
 
   return (
     <Form onSubmit={onSubmit}>
